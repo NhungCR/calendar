@@ -85,7 +85,8 @@ function renderCalendar(ele){
 }
 
 function updateInputDate(ele){ 
-    document.getElementsByClassName('current-date')[0].classList.remove('current-date');
+    Array.from(document.getElementsByClassName('current-date'))
+	.forEach(e => e.classList.remove('current-date'));
     ele.classList.add('current-date');
     let input = ele.parentNode.parentNode.parentNode.parentNode.getElementsByClassName("nhun-calendar-input-date")[0];
     input.value = ele.value;
