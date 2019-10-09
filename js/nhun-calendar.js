@@ -92,9 +92,10 @@ function updateInputDate(ele){
     input.value = ele.value;
 }
 
-window.onload = function(){
-    
-    Array.from(this.document.getElementsByClassName('nhun-calendar'))
+
+window.addEventListener("load", 
+() => {
+ Array.from(this.document.getElementsByClassName('nhun-calendar'))
         .forEach(ele => ele.innerHTML = 
             `<input type='text' class='nhun-calendar-input-date' value='<i class="fas fa-user"></i>'/>  
             <div class="nhun-calendar-div">
@@ -115,5 +116,6 @@ window.onload = function(){
                 <div class="nhun-calendar-content"></div>
             </div>`)
 
-    this.init();
+    this.init(); 
 }
+, false);
