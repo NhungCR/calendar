@@ -85,37 +85,34 @@ function renderCalendar(ele){
 }
 
 function updateInputDate(ele){ 
-    Array.from(document.getElementsByClassName('current-date'))
+    Array.from(ele.parentNode.parentNode.getElementsByClassName('current-date'))
 	.forEach(e => e.classList.remove('current-date'));
     ele.classList.add('current-date');
     let input = ele.parentNode.parentNode.parentNode.parentNode.getElementsByClassName("nhun-calendar-input-date")[0];
     input.value = ele.value;
 }
 
-
-window.addEventListener("load", 
-() => {
- Array.from(this.document.getElementsByClassName('nhun-calendar'))
-        .forEach(ele => ele.innerHTML = 
-            `<input type='text' class='nhun-calendar-input-date' value='<i class="fas fa-user"></i>'/>  
-            <div class="nhun-calendar-div">
-                <select class='nhun-calendar-select-month' onchange="renderCalendar(this)"></select> 
-                <select class='nhun-calendar-select-year' onchange="renderCalendar(this)"></select>  
+window.addEventListener('load', () => {
+    Array.from(this.document.getElementsByClassName('nhun-calendar'))
+    .forEach(ele => ele.innerHTML = 
+        `<input type='text' class='nhun-calendar-input-date' value='<i class="fas fa-user"></i>'/>  
+        <div class="nhun-calendar-div">
+            <select class='nhun-calendar-select-month' onchange="renderCalendar(this)"></select> 
+            <select class='nhun-calendar-select-year' onchange="renderCalendar(this)"></select>  
+        </div>
+        <div class="nhun-calendar-container">
+            <div class="nhun-calendar-header">
+                <span class="nhun-calendar-span">W</span>
+                <span class="nhun-calendar-span">Su</span>
+                <span class="nhun-calendar-span">Mo</span>
+                <span class="nhun-calendar-span">Tu</span>
+                <span class="nhun-calendar-span">We</span>
+                <span class="nhun-calendar-span">Th</span>
+                <span class="nhun-calendar-span">Fr</span>
+                <span class="nhun-calendar-span">Sa</span>
             </div>
-            <div class="nhun-calendar-container">
-                <div class="nhun-calendar-header">
-                    <span class="nhun-calendar-span">W</span>
-                    <span class="nhun-calendar-span">Su</span>
-                    <span class="nhun-calendar-span">Mo</span>
-                    <span class="nhun-calendar-span">Tu</span>
-                    <span class="nhun-calendar-span">We</span>
-                    <span class="nhun-calendar-span">Th</span>
-                    <span class="nhun-calendar-span">Fr</span>
-                    <span class="nhun-calendar-span">Sa</span>
-                </div>
-                <div class="nhun-calendar-content"></div>
-            </div>`)
+            <div class="nhun-calendar-content"></div>
+        </div>`)
 
     this.init(); 
-}
-, false);
+}, false); 
